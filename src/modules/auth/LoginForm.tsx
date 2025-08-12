@@ -10,7 +10,7 @@ export function LoginForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);  // ✅ Activa el loading
+    setIsLoading(true);  
     setError('');
 
     try {
@@ -31,7 +31,7 @@ export function LoginForm() {
     } catch (error) {
       setError('Error durante el login');
     } finally {
-      setIsLoading(false);  // ✅ Desactiva el loading
+      setIsLoading(false);  
     }
   };
 
