@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from '@/helpers';
+import { useDeviceDetector } from '@/hook';
+import { DeviceBlocker } from '@/components/DeviceBlocker/DeviceBlocker';
 import { LoginForm } from '@/modules/auth';
 import { Layout } from '@/components/Layout';
 import { Dashboard } from '@/modules/home/dashboard';
@@ -9,19 +11,25 @@ import { Pagos } from '@/modules/pagos/pagos';
 import { Reportes } from '@/modules/reporte/reportes';
 import { Configuracion } from '@/modules/configuracion/configuracion';
 
-// Componente que maneja la lógica de autenticación
+// Componente que maneja la lógica de autenticación y detección de dispositivos
 function AuthenticatedApp() {
-  
   const { isAuthenticated, isLoading } = useAuth();
+  const { deviceInfo, isAllowedDevice, blockReason } = useDeviceDetector();
   const location = useLocation();
 
+  // Mostrar loading mientras se carga la autenticación
   if (isLoading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-orange-600"></div>
         <p className="ml-2">Cargando...</p>
       </div>
     );
+  }
+
+  // Bloquear si el dispositivo no está permitido
+  if (!isAllowedDevice && blockReason) {
+    return <DeviceBlocker reason={blockReason} deviceInfo={deviceInfo} />;
   }
 
   // Si no está autenticado y no está en la página de login, redirigir
