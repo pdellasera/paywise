@@ -13,9 +13,7 @@ import {
   Clock,
   CheckCircle,
   X,
-  User,
-  FileText,
-  Banknote
+  User
 } from 'lucide-react';
 import { useState } from 'react';
 
