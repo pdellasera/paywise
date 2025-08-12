@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-route
 import { AuthProvider, useAuth } from '@/helpers';
 import { useDeviceDetector } from '@/hook';
 import { DeviceBlocker } from '@/components/DeviceBlocker/DeviceBlocker';
+import { PWAProvider } from '@/components/PWAProvider';
 import { LoginForm } from '@/modules/auth';
 import { Layout } from '@/components/Layout';
 import { Dashboard } from '@/modules/home/dashboard';
@@ -128,9 +129,11 @@ function AuthenticatedApp() {
 export function AppRouter() {
   return (
     <AuthProvider>
-      <BrowserRouter>
-        <AuthenticatedApp />
-      </BrowserRouter>
+      <PWAProvider>
+        <BrowserRouter>
+          <AuthenticatedApp />
+        </BrowserRouter>
+      </PWAProvider>
     </AuthProvider>
   );
 }

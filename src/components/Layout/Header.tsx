@@ -1,5 +1,6 @@
-import { Menu, Bell, User, LogOut } from 'lucide-react';
+import { Menu, Bell, User, LogOut, Download } from 'lucide-react';
 import { useAuth } from '@/helpers';
+import { usePWAContext } from '@/components/PWAProvider';
 import { motion } from 'framer-motion';
 
 interface HeaderProps {
@@ -8,6 +9,7 @@ interface HeaderProps {
 
 export function Header({ onMenuClick }: HeaderProps) {
   const { user, logout } = useAuth();
+  const { showInstallModal, isInstallable, isInstalled } = usePWAContext();
 
   return (
     <header className="bg-orange-600 shadow-lg border-b border-orange-700">
@@ -29,7 +31,6 @@ export function Header({ onMenuClick }: HeaderProps) {
               alt="PayWise Logo" 
               className="h-50 w-50 object-contain"
             />
-            {/* <h1 className="text-xl font-semibold text-white drop-shadow-sm">PayWise</h1> */}
           </div>
 
           {/* Logo PayWise para desktop (oculto en móvil) */}
@@ -44,6 +45,20 @@ export function Header({ onMenuClick }: HeaderProps) {
 
           {/* Acciones del usuario */}
           <div className="flex items-center space-x-4">
+            {/* Botón de instalación PWA */}
+            {isInstallable && !isInstalled && (
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={showInstallModal}
+                className="p-2 text-white hover:text-orange-100 hover:bg-orange-700 rounded-lg transition-colors duration-200 relative"
+                title="Instalar App"
+              >
+                <Download className="h-5 w-5" />
+                <span className="absolute top-1 right-1 block h-2 w-2 rounded-full bg-green-500 ring-2 ring-white" />
+              </motion.button>
+            )}
+
             {/* Notificaciones */}
             <motion.button
               whileHover={{ scale: 1.05 }}
