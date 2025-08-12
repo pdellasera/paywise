@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* Paleta de colores con base naranja */
+:root {
+  --primary-orange: #ea580c;
+  --primary-orange-dark: #c2410c;
+  --primary-orange-light: #fed7aa;
+  --complementary-blue: #0ea5e9;
+  --complementary-blue-dark: #0284c7;
+  --complementary-blue-light: #e0f2fe;
+  --success-green: #059669;
+  --danger-red: #dc2626;
+  --warning-yellow: #d97706;
+  --info-purple: #7c3aed;
+  --gray-dark: #111827;
+  --gray-medium: #6b7280;
+  --gray-light: #f9fafb;
+}
+
+/* Clases de botones actualizadas */
+.btn-primary {
+  @apply bg-orange-600 hover:bg-orange-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 shadow-sm;
+}
+
+.btn-secondary {
+  @apply bg-sky-500 hover:bg-sky-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-offset-2 shadow-sm;
+}
+
+.btn-tertiary {
+  @apply bg-gray-200 hover:bg-gray-300 text-gray-900 font-medium py-2 px-4 rounded-lg transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2;
+}
+
+.btn-success {
+  @apply bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 shadow-sm;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 shadow-sm;
+}
+
+.btn-warning {
+  @apply bg-amber-600 hover:bg-amber-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 shadow-sm;
+}
+
+/* Clases de input actualizadas */
+.input-field {
+  @apply w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors duration-200;
+}
+
+/* Clases de estado actualizadas */
+.status-success {
+  @apply bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.status-danger {
+  @apply bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.status-warning {
+  @apply bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-xs font-medium;
+}
+
+.status-info {
+  @apply bg-sky-100 text-sky-800 px-3 py-1 rounded-full text-xs font-medium;
+}
+
+/* Clases de tarjetas mejoradas */
+.card {
+  @apply bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200 border border-gray-100;
+}
+
+.card-header {
+  @apply p-6 border-b border-gray-200 bg-gray-50;
+}
+
+.card-body {
+  @apply p-6;
+}
+
+/* Clases de iconos con la nueva paleta */
+.icon-primary {
+  @apply text-orange-600;
+}
+
+.icon-secondary {
+  @apply text-sky-500;
+}
+
+.icon-success {
+  @apply text-emerald-600;
+}
+
+.icon-danger {
+  @apply text-red-600;
+}
+
+.icon-warning {
+  @apply text-amber-600;
+}
+
+.icon-info {
+  @apply text-violet-600;
+}
+
+/* Sidebar actualizado para complementar el header naranja */
+.sidebar-dark {
+  @apply bg-gray-900 text-white;
+}
+
+.sidebar-item-active {
+  @apply bg-orange-600 text-white;
+}
+
+.sidebar-item-hover {
+  @apply hover:bg-gray-800 hover:text-orange-200;
+}
