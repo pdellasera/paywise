@@ -12,6 +12,7 @@ export function Header({ onMenuClick }: HeaderProps) {
   const { showInstallModal, isInstallable, isInstalled } = usePWAContext();
 
   return (
+    
     <header className="bg-orange-600 shadow-lg border-b border-orange-700">
       <div className="mx-auto max-w-full px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 justify-between items-center">
