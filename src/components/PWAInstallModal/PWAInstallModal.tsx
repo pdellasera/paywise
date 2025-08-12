@@ -41,6 +41,7 @@ export function PWAInstallModal({ isOpen, onClose, onInstall }: PWAInstallModalP
   ];
 
   return (
+    
     <AnimatePresence>
       {isOpen && (
         <>
